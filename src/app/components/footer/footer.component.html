@@ -1,0 +1,20 @@
+<footer class="footer">
+    <div class="container footer__container">
+        <h2>PUH Laser Stempel</h2>
+        <p>2019 © Wszystkie prawa zastrzeżone</p>
+    </div>
+    <div class="container footer__data">
+      <div class="footer__box" *ngFor="let item of options.acf.footer_contact" [innerHTML]="item.box">
+      </div>
+      <div class="footer__box">
+        <h2>USŁUGI</h2>
+        <ul>
+          <li *ngFor="let item of menu.items"><a routerLink="{{item.link}}" routerLinkActive="active">{{item.title}}</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="container">
+        <p class="noveo">projekt i realizacja: <a title="agencja interaktywna gdańsk" href="https://noveo.pl" target="_blank">Tworzenie stron - NOVEO</a></p>
+    </div>
+</footer>
+

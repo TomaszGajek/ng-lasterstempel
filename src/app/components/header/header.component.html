@@ -1,3 +1,10 @@
-<p>
-  header works!
-</p>
+<header class="header">
+  <div class="container header__container">
+    <nav class="header__nav">
+        <a routerLink="/" ><img class="header__logo" src="{{options.acf.logo}}" alt="Site logo"></a>
+      <ul class="header__list">
+        <li *ngFor="let item of menu.items"><a routerLink="{{item.link}}" routerLinkActive="active">{{item.title}}</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>

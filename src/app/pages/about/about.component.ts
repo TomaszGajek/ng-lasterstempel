@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnChanges } from '@angular/core';
+import { WordpressService } from '../../service/wordpress.service';
 
 @Component({
   selector: 'app-about',
@@ -7,9 +8,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AboutComponent implements OnInit {
 
-  constructor() { }
+  public about:any;
+  public loaded:boolean = false;
+
+  constructor(private wordpressService: WordpressService) {}
+
 
   ngOnInit() {
+    this.wordpressService.requestDataForAboutPage().subscribe(
+      response=>{
+        this.loaded = true;
+        this.about = response[0];       
+      }
+    );
   }
+
 
 }

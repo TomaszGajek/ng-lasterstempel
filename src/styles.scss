@@ -1,1 +1,47 @@
-/* You can add global styles to this file, and also import other style files */
+/* imports */
+@import url('https://fonts.googleapis.com/css?family=Montserrat:300,400,600,700,900&subset=latin-ext');
+
+@import './styles/global/mixins';
+@import './styles/global/variables';
+@import './styles/global/normalize';
+
+html {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+  *, *:before, *:after {
+    -webkit-box-sizing: inherit;
+    -moz-box-sizing: inherit;
+    box-sizing: inherit;
+    }
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    color:$main-font-color;
+}
+
+.container {
+    width:1320px;
+    margin:0 auto;
+}
+
+
+p {
+    font-size:14px;
+    @include css-lock(12,14);
+    font-weight:300;
+    line-height:1.8;
+
+}
+
+a {
+    text-decoration:none;
+    line-height:1.8;
+    font-size:14px;
+    @include css-lock(12,14);
+    transition:all 0.3s ease-in-out;
+    &:hover {
+        color:$main-slider-link-color;
+    }
+}

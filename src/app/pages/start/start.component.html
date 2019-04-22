@@ -1,3 +1,41 @@
-<p>
-  start works!
-</p>
+<main *ngIf="loaded">
+  <section>
+    <div class="container">
+      <div  class="main-slider swiper-container" [swiper]="config">
+          <div class="swiper-wrapper">
+              <div *ngFor="let slide of slides" class="swiper-slide main-slider__slide">
+                  <div class="main-slider__content">
+                      <div class="main-slider__top-box">
+                          <div class="main-slider__link-line"></div>
+                          <p>Nowość</p>
+                      </div>
+                      <h2 class="main-slider__title">{{slide.title}}</h2>
+                      <p class="main-slider__text">{{slide.text}}</p>
+                      <div class="main-slider__link-box">
+                        <div class="main-slider__link-line"></div>
+                        <a class="main-slider__link" routerLink="{{slide.link.url}}">{{slide.link.title}}</a>
+                      </div>
+                      
+                    </div>
+                  <div class="main-slider__image" [ngStyle]="{'background-image':'url('+slide.img+')'}"></div>
+              </div>
+          </div>
+          <div class="main-slider__footer">
+            <div class="main-slider__box"></div>
+            <div class="main-slider__box">
+                <div class="main-slider__nav">
+                    <div class="swiper-button-prev">
+                      <img src="./assets/img/prev.png"/>
+                    </div>
+                    <div class="swiper-pagination"></div>
+                    <div class="swiper-scrollbar"></div>
+                    <div class="swiper-button-next">
+                        <img src="./assets/img/next.png"/>
+                    </div>
+                </div>
+            </div>
+          </div>           
+        </div>
+      </div>  
+  </section>
+</main>

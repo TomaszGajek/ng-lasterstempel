@@ -1,0 +1,61 @@
+@import '../../../styles/global/variables';
+
+
+.footer {
+    background:$footer-background;
+    color:white;
+    a {
+        color:#898989;
+        transition:all 0.3s ease-in-out;
+
+    }
+    a:hover {
+        color:$main-slider-link-color;
+    }
+    &__container{
+        display:flex;
+        justify-content: space-between;
+        align-items:center;
+    }
+    &__data {
+        display:flex;
+        justify-content: space-between;
+        border-top:1px solid #545454;
+        border-bottom:1px solid #545454;
+        padding:40px 0;
+    }
+    &__box {
+        width:33.33%;
+        color:white;
+        p {
+            color:#898989;
+        }
+
+        ul {
+            display:flex;
+            flex-wrap:wrap;
+            margin:0;
+            padding:0;
+        }
+        li {
+            list-style:none;
+            width:50%;
+            a {
+                color:#898989;
+                transition:all 0.3s ease-in-out;
+
+            }
+            a:hover {
+                color:$main-slider-link-color;
+            }
+        }
+
+    }
+    .noveo {
+        text-align: center;
+        margin:0;
+        padding:20px;
+        color:#898989;
+    }
+
+}

@@ -1,3 +1,9 @@
-<p>
-  about works!
-</p>
+<main *ngIf="loaded">
+  <section>
+    <h2 class="content__title" [innerHTML]="about.title.rendered"></h2>
+    <article class="content" [innerHTML]="about.content.rendered">
+      
+
+    </article>
+  </section>
+</main>

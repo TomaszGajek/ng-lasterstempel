@@ -1,1 +1,9 @@
+<app-header 
+    [options]="options"
+    [menu]="main_menu" 
+    *ngIf="loaded"></app-header>
 <router-outlet></router-outlet>
+<app-footer 
+    [options]="options" 
+    [menu]="footer_menu" 
+    *ngIf="loaded"></app-footer>
