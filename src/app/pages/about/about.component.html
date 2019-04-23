@@ -1,9 +1,24 @@
 <main *ngIf="loaded">
-  <section>
-    <h2 class="content__title" [innerHTML]="about.title.rendered"></h2>
-    <article class="content" [innerHTML]="about.content.rendered">
-      
-
-    </article>
+  <section class="start-about about">
+    <div class="container">
+      <div class="start-about__wrap">
+        <div class="start-about__box">
+          <div class="start-about__image" [ngStyle]="{'background-image':'url('+about.acf.image+')'}" ></div>
+        </div>
+        <div class="start-about__box">
+          <div class="page-title">
+            <div class="page-title__line"></div>
+            <div class="page-title__text">O nas</div>
+          </div>
+          <div class="start-about__text" [innerHTML]="about.content.rendered"></div>
+        </div>  
+        
+      </div>
+    </div>
+  </section>
+  <section class="start-map">
+    <div class="container">
+        <iframe width="100%" src="https://maps.google.com/maps?width=100%&amp;height=600&amp;hl=en&amp;q=Laser%20Stempel%20ul.Sobieskiego%2065%2084-230%20Rumia-Janowo+()&amp;ie=UTF8&amp;t=&amp;z=14&amp;iwloc=B&amp;output=embed" frameborder="0" border="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+    </div>
   </section>
 </main>

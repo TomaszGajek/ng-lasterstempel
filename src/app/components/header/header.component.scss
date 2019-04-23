@@ -2,6 +2,7 @@
 
 
 .header {
+    background:white;
     &__container{
         display:-webkit-box;
         display:-ms-flexbox;
@@ -11,6 +12,7 @@
                 justify-content: space-between;
     }
     &__nav {
+        
         display:flex;
         justify-content: space-between;
         align-items:center;
@@ -27,6 +29,9 @@
             font-weight:600;
             padding:0 30px;
             color:$main-font-color;
+        }
+        a:hover {
+            color:$main-slider-link-color;
         }
         a.active {
             color:$main-slider-link-color;

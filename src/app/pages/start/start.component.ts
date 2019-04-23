@@ -13,6 +13,10 @@ export class StartComponent implements OnInit {
   public start:any;
   public loaded:boolean = false;
   public slides:[] = [];
+  public offer:[] = [];
+  public offerCount:number=null;
+  public offerRow:[]=[];
+ 
 
   public config: SwiperConfigInterface = {
     a11y: true,
@@ -42,7 +46,10 @@ export class StartComponent implements OnInit {
       response => {
         this.loaded = true;
         this.start = response[0];
-        this.slides = response[0].acf.main_slider
+        this.slides = response[0].acf.main_slider;
+        this.offer = response[1];
+        this.offerCount = Math.ceil(response[1].length / 6);
+        this.offerRow = Array(this.offerCount).fill().map((elem,index)=>index);
       }
     )
   }

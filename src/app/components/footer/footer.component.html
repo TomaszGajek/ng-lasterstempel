@@ -1,13 +1,13 @@
 <footer class="footer">
     <div class="container footer__container">
-        <h2>PUH Laser Stempel</h2>
+        <h4>PUH Laser Stempel</h4>
         <p>2019 © Wszystkie prawa zastrzeżone</p>
     </div>
     <div class="container footer__data">
       <div class="footer__box" *ngFor="let item of options.acf.footer_contact" [innerHTML]="item.box">
       </div>
       <div class="footer__box">
-        <h2>USŁUGI</h2>
+        <h4>USŁUGI</h4>
         <ul>
           <li *ngFor="let item of menu.items"><a routerLink="{{item.link}}" routerLinkActive="active">{{item.title}}</a></li>
         </ul>

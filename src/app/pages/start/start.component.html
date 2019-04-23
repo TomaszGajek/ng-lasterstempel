@@ -1,5 +1,5 @@
 <main *ngIf="loaded">
-  <section>
+  <section class="start-slider">
     <div class="container">
       <div  class="main-slider swiper-container" [swiper]="config">
           <div class="swiper-wrapper">
@@ -37,5 +37,53 @@
           </div>           
         </div>
       </div>  
+  </section>
+  <section class="start-offer">
+    <div class="container">
+      <div class="start-offer__wrap">
+          <div class="start-offer__row" *ngFor="let item of offerRow;let i = index ">
+            <a 
+                routerLink="/uslugi/{{thumb.slug}}"
+                class="start-offer__thumb" 
+                *ngFor="let thumb of offer.slice((i-1)*6,i*6)"
+                [ngStyle]="{'background-image':'url('+thumb.featured_image.url[0]+')'}">
+              <div class="start-offer__name-box">
+                <div class="start-offer__line"></div>
+                <h4 class="start-offer__title" [innerHTML]="thumb.title.rendered"></h4>
+              </div>
+              <p class="start-offer__preview" [innerHTML]="thumb.acf.preview"></p>  
+              <div class="start-offer__link-box">
+                <p class="start-offer__link-text">Czytaj więcej</p>
+                <div class="start-offer__link-line"></div>
+              </div>
+            </a>
+          </div>
+      </div>
+    </div>  
+  </section>
+  <section class="start-about">
+    <div class="container">
+      <div class="start-about__wrap">
+        <div class="start-about__box">
+          <div class="start-about__image" [ngStyle]="{'background-image':'url('+start.acf.about[0].img+')'}" ></div>
+        </div>
+        <div class="start-about__box">
+          <div class="page-title">
+            <div class="page-title__line"></div>
+            <div class="page-title__text">O nas</div>
+          </div>
+          <div class="start-about__text" [innerHTML]="start.acf.about[0].text"></div>
+          <div class="page-link">
+              <div class="page-link__line"></div>
+              <a routerLink="{{start.acf.about[0].link.url}}" class="page-link__text">{{start.acf.about[0].link.title}}</a>
+            </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="start-map">
+    <div class="container">
+        <iframe width="100%" src="https://maps.google.com/maps?width=100%&amp;height=600&amp;hl=en&amp;q=Laser%20Stempel%20ul.Sobieskiego%2065%2084-230%20Rumia-Janowo+()&amp;ie=UTF8&amp;t=&amp;z=14&amp;iwloc=B&amp;output=embed" frameborder="0" border="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+    </div>
   </section>
 </main>

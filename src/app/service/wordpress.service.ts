@@ -22,7 +22,7 @@ export class WordpressService {
   public requestDataForStart(): Observable<any[]> {
 
     let main = this.httpClient.get(`${this.baseUrl}/wp-json/wp/v2/pages/32`);
-    let offer = this.httpClient.get(`${this.baseUrl}/wp-json/wp/v2/uslugi`);
+    let offer = this.httpClient.get(`${this.baseUrl}/wp-json/wp/v2/uslugi?per_page=100`);
 
     return forkJoin([main,offer]);
   }
@@ -38,6 +38,13 @@ export class WordpressService {
     let about = this.httpClient.get(`${this.baseUrl}/wp-json/wp/v2/pages/34`);
     
     return forkJoin([about])
+  }
+
+  public requestDataForOffer(): Observable<any[]> {
+
+    let offer = this.httpClient.get(`${this.baseUrl}/wp-json/wp/v2/uslugi?per_page=100`);
+
+    return forkJoin([offer]);
   }
 
 

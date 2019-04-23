@@ -1,0 +1,24 @@
+.start-about {
+    &__wrap{
+        display:flex;
+        align-items:center;
+    }
+    &__box {
+        width:50%;
+
+    }
+    &__text {
+        padding:0px 0 60px 60px;
+    }
+    &__image {
+        background-size:cover;
+        background-position:center;
+        background-repeat:no-repeat;
+        height:600px;
+    }
+}
+
+.about .page-title {
+    margin-left:60px;
+    margin-top:60px;
+}
