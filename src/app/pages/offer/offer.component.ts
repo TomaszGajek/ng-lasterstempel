@@ -11,7 +11,7 @@ export class OfferComponent implements OnInit {
   public loaded:Boolean=false;
   public offer:[]=[];
   public offerCount:number=null;
-  public offerRow:[]=[];
+  public offerRow:number[]=[];
 
   constructor(private wordpressService: WordpressService) {}
 
@@ -22,7 +22,9 @@ export class OfferComponent implements OnInit {
         this.loaded = true;
         this.offer = response[0];
         this.offerCount = Math.ceil(response[0].length / 6);
-        this.offerRow = Array(this.offerCount).fill().map((elem,index)=>index);
+
+        for(let i:number=1;i<=this.offerCount;i++){ this.offerRow.push(i); }  
+        
       }
     )
 

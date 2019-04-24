@@ -9,6 +9,7 @@ import { WordpressService } from '../../service/wordpress.service';
 export class AboutComponent implements OnInit {
 
   public about:any;
+  public aside:any;
   public loaded:boolean = false;
 
   constructor(private wordpressService: WordpressService) {}
@@ -18,7 +19,8 @@ export class AboutComponent implements OnInit {
     this.wordpressService.requestDataForAboutPage().subscribe(
       response=>{
         this.loaded = true;
-        this.about = response[0];       
+        this.about = response[0];  
+        this.aside = response[1];
       }
     );
   }

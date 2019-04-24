@@ -1,3 +1,28 @@
-<p>
-  gallery works!
-</p>
+<div class="container container--flex" *ngIf="loaded">
+    <aside class="aside">
+      <nav class="aside__menu">
+          <ul class="aside__menu-list">
+            <li 
+              class="aside__menu-item"
+              *ngFor="let item of aside.items"
+              [className]="item.menu_item_parent != 0 ? 'aside__menu-item--child':'aside__menu-item--parent'">
+              <a class="aside__menu-link" routerLink="{{item.link}}" routerLinkActive="active">{{item.title}}</a>
+            </li>
+          </ul>          
+      </nav>
+    </aside>
+    <main class="main" *ngIf="loaded">
+        <section class="gallery-page">
+                <div class="page-title">
+                  <div class="page-title__line"></div>
+                  <div class="page-title__text">Galeria</div>
+                </div>
+                <div class="gallery">
+                    <div class="gallery__thumb" *ngFor="let image of _albums; let i=index">
+                        <img [src]="image.url" (click)="open(i)"/>
+                      </div>
+                </div>    
+        </section>  
+      </main>
+</div>
+

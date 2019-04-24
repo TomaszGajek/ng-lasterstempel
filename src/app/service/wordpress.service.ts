@@ -2,11 +2,12 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { forkJoin, Observable } from 'rxjs';
 
+
 @Injectable({
   providedIn: 'root'
 })
 
-export class WordpressService {
+export class WordpressService  {
   baseUrl:string = 'http://laser.devnoveo.pl/wp';
 
   constructor(private httpClient: HttpClient) { }
@@ -20,7 +21,6 @@ export class WordpressService {
   }
 
   public requestDataForStart(): Observable<any[]> {
-
     let main = this.httpClient.get(`${this.baseUrl}/wp-json/wp/v2/pages/32`);
     let offer = this.httpClient.get(`${this.baseUrl}/wp-json/wp/v2/uslugi?per_page=100`);
 
@@ -36,17 +36,32 @@ export class WordpressService {
 
   public requestDataForAboutPage(): Observable<any>{
     let about = this.httpClient.get(`${this.baseUrl}/wp-json/wp/v2/pages/34`);
+    let aside_menu = this.httpClient.get(`${this.baseUrl}/wp-json/menus/v1/menus/aside`);
     
-    return forkJoin([about])
+    return forkJoin([about,aside_menu])
   }
 
   public requestDataForOffer(): Observable<any[]> {
-
     let offer = this.httpClient.get(`${this.baseUrl}/wp-json/wp/v2/uslugi?per_page=100`);
 
     return forkJoin([offer]);
   }
 
+  public requestDataForGallery():Observable<any[]>{
+    let gallery = this.httpClient.get(`${this.baseUrl}/wp-json/wp/v2/pages/38`);
+    let aside_menu = this.httpClient.get(`${this.baseUrl}/wp-json/menus/v1/menus/aside`);
+
+    return forkJoin([gallery,aside_menu]);
+  }
+
+  public requestDataForOfferSingle(data):Observable<any[]>{
+
+    let offerSingle = this.httpClient.get(`${this.baseUrl}/wp-json/wp/v2/uslugi?slug=${data}`);
+    let aside_menu = this.httpClient.get(`${this.baseUrl}/wp-json/menus/v1/menus/aside`);
+
+    return forkJoin([offerSingle,aside_menu]);
+  }
+  
 
 
 }

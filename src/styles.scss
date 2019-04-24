@@ -4,15 +4,14 @@
 @import './styles/global/mixins';
 @import './styles/global/variables';
 @import './styles/global/normalize';
+@import './styles/global/lightbox';
 
 html {
     -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
     box-sizing: border-box;
   }
   *, *:before, *:after {
     -webkit-box-sizing: inherit;
-    -moz-box-sizing: inherit;
     box-sizing: inherit;
     }
 
@@ -25,6 +24,71 @@ body {
 .container {
     width:1320px;
     margin:0 auto;
+}
+.container--flex{
+    display:-webkit-box;
+    display:-ms-flexbox;
+    display:flex;
+    align-items:flex-start;
+    margin-top:50px;
+    
+}
+
+.aside {
+    padding:35px;
+    background:white;
+    width:30%;
+
+    &__menu-list{
+        margin:0;
+        padding:0;
+    }
+
+    &__menu-item--parent,
+    &__menu-item--child {
+        list-style:none;
+    }
+    &__menu-item--child .aside__menu-link {
+        border-bottom:none;
+        text-transform:none;
+        font-weight:400;
+        padding-left:20px;
+        position:relative;
+        padding-top:10px;
+        padding-bottom:10px;
+        &:after{
+            content:"";
+            display:block;
+            height:5px;
+            width:5px;
+            position:absolute;
+            background:black;
+            top:20px;
+            left:0;
+        }
+    }
+
+    &__menu-link{
+        font-weight:600;
+        padding:15px 0;
+        display:block;
+        font-size:16px;
+        // @include css-lock(14,16);
+        color:#898989;
+        text-transform: uppercase;
+        transition:all 0.3s;
+        border-bottom:1px solid #d9d9d9;
+        &:hover {
+            color:$main-slider-link-color;
+        }
+    }
+    &__menu-link.active {
+        color:$main-slider-link-color;
+    }
+}
+.main {
+    width:70%;
+    padding-bottom:50px;
 }
 
 h2 {
@@ -52,6 +116,7 @@ a {
     line-height:1.8;
     font-size:14px;
     @include css-lock(12,14);
+    -webkit-transition:all 0.3s ease-in-out;
     transition:all 0.3s ease-in-out;
     &:hover {
         color:$main-slider-link-color;
@@ -59,8 +124,12 @@ a {
 }
 
 .page-title {
+    display:-webkit-box;
+    display:-ms-flexbox;
     display:flex;
-    align-items:center;
+    -webkit-box-align:center;
+        -ms-flex-align:center;
+            align-items:center;
 
     &__line{
         background:$main-slider-link-color;
@@ -78,8 +147,12 @@ a {
 }
 
 .page-link {
+    display:-webkit-box;
+    display:-ms-flexbox;
     display:flex;
-    align-items:center;
+    -webkit-box-align:center;
+        -ms-flex-align:center;
+            align-items:center;
     &__line{
         background:$main-slider-link-color;
         height:20px;
