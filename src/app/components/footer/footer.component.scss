@@ -75,3 +75,24 @@
     }
 
 }
+
+/* RWD */
+
+@media(max-width:991px){
+    .footer__data {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .footer__box{
+        width:60%;
+    }
+}
+
+@media(max-width:530px){
+    .footer__box{
+        width:100%;
+        padding-left:15px;
+        padding-right:15px;
+    }
+}

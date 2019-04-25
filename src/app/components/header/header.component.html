@@ -1,14 +1,29 @@
 <header class="header">
   <div class="container header__container">
-    <nav class="header__nav">
-        <a routerLink="/" ><img class="header__logo" src="{{options.acf.logo}}" alt="Site logo"></a>
-      <ul class="header__list">
-        <li *ngFor="let item of menu.items"><a routerLink="{{item.link}}" [routerLinkActiveOptions]="{ exact: true }" routerLinkActive="active">{{item.title}}</a></li>
-      </ul>
-      <a href="tel:{{options.acf.tel_header}}" class="header__tel">
-        <img class="header__tel-icon" src="{{options.acf.tel_icon}}" alt="telephone icon">
-        <p class="header__tel-text">{{options.acf.tel_header}}</p>
-      </a>
+    <nav class="header__nav" [ngClass]="{'active': openNav }">
+        <a class="header__logo-box" routerLink="/" ><img class="header__logo" src="{{options.acf.logo}}" alt="Site logo"></a>
+      <div class="header__wrapper"
+        [ngClass]="{'active': openNav }">
+        <ul class="header__list">
+            <li *ngFor="let item of menu.items">
+              <a class="header__list-link" 
+                routerLink="{{item.link}}" 
+                [routerLinkActiveOptions]="{ exact: true }" 
+                routerLinkActive="active"
+                (click)="closeNav()">
+                {{item.title}}</a>
+            </li>
+        </ul>
+        <a href="tel:{{options.acf.tel_header}}" class="header__tel">
+            <img class="header__tel-icon" src="{{options.acf.tel_icon}}" alt="telephone icon">
+            <p class="header__tel-text">{{options.acf.tel_header}}</p>
+        </a>
+      </div> 
+      <div class="header__hamburger" (click)="toggleNav()">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>       
     </nav>
   </div>
 </header>

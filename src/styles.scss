@@ -46,20 +46,6 @@ body {
     animation-duration:1s;
     animation-fill-mode: forwards;
 
-    // &__overlay{
-    //     background:#f9f9f9;
-    //     position:absolute;
-    //     top:0;
-    //     right:0;
-    //     bottom:0;
-    //     width:100%;
-    //     animation-name:widthIn;
-    //     animation-duration:1s;
-    //     animation-fill-mode: forwards;
-    //     animation-delay: 0.5s;
-    //     z-index:2;
-    // }
-
     &__menu-list{
         margin:0;
         padding:0;
@@ -236,4 +222,15 @@ a {
 .swiper-scrollbar-drag{
     height:6px;
     background:rgba(0, 0, 0, 0.4);
+}
+
+
+/* RWD */
+
+@media(max-width:1355px){
+    .container {
+        width:100%;
+        padding-left:15px;
+        padding-right:15px;
+    }
 }

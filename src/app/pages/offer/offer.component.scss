@@ -276,3 +276,120 @@ main {
     -webkit-animation-duration:0.5s;
             animation-duration:0.5s;
 }
+
+/* RWD */
+
+@media(max-width:1355px){
+    
+    // .start-offer__row {
+    //     justify-content: space-between;
+    // }
+
+    .start-offer {
+        margin-top:2%;
+    }
+    .start-offer__thumb:nth-child(1) {
+        width:49%;
+        height:607px;
+        margin-right:1%;
+        margin-bottom:2%;
+    }
+
+    .start-offer__thumb:nth-child(2) {
+        width:49%;
+        margin-left:1%;
+        
+    }
+    .start-offer__thumb:nth-child(3){
+        width:49%;
+        top:316px;
+        
+    }
+
+    .start-offer__thumb:nth-child(4){
+        margin-bottom:2%;
+    }
+
+    .start-offer__thumb:nth-child(5){
+        width:49%;
+        margin-right:1%;
+        margin-bottom:2%;
+    }
+    .start-offer__thumb:nth-child(6){
+        width:49%;
+        margin-left:1%;
+        margin-bottom:2%;
+    }
+}
+
+@media(max-width:991px) {
+    .start-offer__thumb:nth-child(1){
+        width:100%;
+        margin:0 0 2% 0;
+        height:300px;
+        .start-offer__preview {
+            max-width:350px;
+        }
+    }
+    .start-offer__thumb:nth-child(2){
+        width:100%;
+        margin:0 0 2% 0;
+    }
+
+    .start-offer__thumb:nth-child(3){
+        width:100%;
+        position:relative;
+        margin:0 0 2% 0;
+        top:auto;
+    }
+
+    .start-offer__thumb:nth-child(4){
+        width:100%;
+        margin:0 0 2% 0;
+    }
+
+    .start-offer__thumb:nth-child(5){
+        width:100%;
+        margin:0 0 2% 0;
+    }
+    .start-offer__thumb:nth-child(6){
+        width:100%;
+        margin:0 0 2% 0;
+    }
+}
+
+@media(max-width:768px){
+    .start-about__wrap{
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+                flex-direction: column;
+    }
+    .start-about__box{
+        width:100%;
+    }
+    .start-about__box:nth-child(1){
+        -webkit-box-ordinal-group:3;
+            -ms-flex-order:2;
+                order:2;
+    }
+    .start-about__box:nth-child(2){
+        -webkit-box-ordinal-group:2;
+            -ms-flex-order:1;
+                order:1;
+        margin-top:4%;
+    }
+
+    .start-about__image{
+        height:520px;
+    }
+}
+
+@media(max-width:500px){
+    .start-offer__title{
+        font-size: 20px;
+    }
+    .start-offer__link-text{
+        display:none;
+    }
+}

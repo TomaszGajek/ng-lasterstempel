@@ -1,5 +1,4 @@
-import { Component, OnInit,OnChanges, Input } from '@angular/core';
-import { Options } from 'selenium-webdriver/chrome';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-header',
@@ -11,15 +10,22 @@ export class HeaderComponent implements OnInit {
   @Input() menu;
   @Input() options;
 
+  public openNav:Boolean = false;
+
   constructor() {}
 
   ngOnInit() {
-
-  }
-
-  ngOnChanges(){
     
   }
+
+  toggleNav(){
+    this.openNav =!this.openNav;
+  }
+  closeNav(){
+    this.openNav = false;
+  }
+
+
   
 
 }
