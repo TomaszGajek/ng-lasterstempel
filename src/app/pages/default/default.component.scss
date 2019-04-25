@@ -1,35 +1,3 @@
-.gallery-page {
-    padding-top:50px;
-    padding-left:50px;
-}
-.gallery {
-    display:-webkit-box;
-    display:-ms-flexbox;
-    display:flex;
-    -ms-flex-wrap:wrap;
-        flex-wrap:wrap;
-    -webkit-box-pack: start;
-        -ms-flex-pack: start;
-            justify-content: flex-start;
-    padding-top:50px;
-    
-    
-    &__thumb {
-        width:32%;
-        margin-right:5px;
-        margin-bottom:5px;
-        margin-top:5px;
-        height:250px;
-        overflow:hidden;
-        cursor:pointer;
-
-        img {
-            max-width:100%;
-            height:250px;
-        }
-    }
-}
-
 main {
     -webkit-animation-name: slideInUp;
             animation-name: slideInUp;
@@ -50,4 +18,8 @@ main {
             animation-name:fadeIn;
     -webkit-animation-duration:0.5s;
             animation-duration:0.5s;
+}
+
+.default {
+    padding:50px;
 }

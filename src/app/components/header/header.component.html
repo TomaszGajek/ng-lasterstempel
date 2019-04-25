@@ -3,8 +3,12 @@
     <nav class="header__nav">
         <a routerLink="/" ><img class="header__logo" src="{{options.acf.logo}}" alt="Site logo"></a>
       <ul class="header__list">
-        <li *ngFor="let item of menu.items"><a routerLink="{{item.link}}" routerLinkActive="active">{{item.title}}</a></li>
+        <li *ngFor="let item of menu.items"><a routerLink="{{item.link}}" [routerLinkActiveOptions]="{ exact: true }" routerLinkActive="active">{{item.title}}</a></li>
       </ul>
+      <a href="tel:{{options.acf.tel_header}}" class="header__tel">
+        <img class="header__tel-icon" src="{{options.acf.tel_icon}}" alt="telephone icon">
+        <p class="header__tel-text">{{options.acf.tel_header}}</p>
+      </a>
     </nav>
   </div>
 </header>

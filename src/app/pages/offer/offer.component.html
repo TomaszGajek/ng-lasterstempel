@@ -1,23 +1,29 @@
-<section class="start-offer">
-  <div class="container">
-    <div class="start-offer__wrap">
-        <div class="start-offer__row" *ngFor="let item of offerRow;let i = index ">
-          <a 
-              routerLink="/uslugi/{{thumb.slug}}"
-              class="start-offer__thumb" 
-              *ngFor="let thumb of offer.slice(i*6,(i+1)*6)"
-              [ngStyle]="{'background-image':'url('+thumb.featured_image.url[0]+')'}">
-            <div class="start-offer__name-box">
-              <div class="start-offer__line"></div>
-              <h4 class="start-offer__title" [innerHTML]="thumb.title.rendered"></h4>              
-            </div>  
-            <p class="start-offer__preview" [innerHTML]="thumb.acf.preview"></p>
-            <div class="start-offer__link-box">
-              <p class="start-offer__link-text">Czytaj więcej</p>
-              <div class="start-offer__link-line"></div>
-            </div>
-          </a>
-        </div>
-    </div>
-  </div>  
-</section>
+<main *ngIf="loaded; else loader">
+  <section class="start-offer">
+    <div class="container">
+      <div class="start-offer__wrap">
+          <div class="start-offer__row" *ngFor="let item of offerRow;let i = index ">
+            <a 
+                routerLink="/uslugi/{{thumb.slug}}"
+                class="start-offer__thumb" 
+                *ngFor="let thumb of offer.slice(i*6,(i+1)*6)"
+                [ngStyle]="{'background-image':'url('+thumb.featured_image.url[0]+')'}">
+              <div class="start-offer__name-box">
+                <div class="start-offer__line">               
+                </div>
+                <h4 class="start-offer__title" [innerHTML]="thumb.title.rendered"></h4>              
+              </div>  
+              <p class="start-offer__preview" [innerHTML]="thumb.acf.preview"></p>
+              <div class="start-offer__link-box">
+                <p class="start-offer__link-text">Czytaj więcej</p>
+                <div class="start-offer__link-line"></div>
+              </div>
+            </a>
+          </div>
+      </div>
+    </div>  
+  </section>
+</main>
+<ng-template #loader>
+    <div class="about-loader"></div>
+</ng-template>

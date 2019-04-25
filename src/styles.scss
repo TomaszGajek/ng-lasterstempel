@@ -5,6 +5,7 @@
 @import './styles/global/variables';
 @import './styles/global/normalize';
 @import './styles/global/lightbox';
+@import './styles/global/loader';
 
 html {
     -webkit-box-sizing: border-box;
@@ -29,7 +30,9 @@ body {
     display:-webkit-box;
     display:-ms-flexbox;
     display:flex;
-    align-items:flex-start;
+    -webkit-box-align:start;
+        -ms-flex-align:start;
+            align-items:flex-start;
     margin-top:50px;
     
 }
@@ -38,6 +41,24 @@ body {
     padding:35px;
     background:white;
     width:30%;
+    position:relative;
+    animation-name: slideInLeft;
+    animation-duration:1s;
+    animation-fill-mode: forwards;
+
+    // &__overlay{
+    //     background:#f9f9f9;
+    //     position:absolute;
+    //     top:0;
+    //     right:0;
+    //     bottom:0;
+    //     width:100%;
+    //     animation-name:widthIn;
+    //     animation-duration:1s;
+    //     animation-fill-mode: forwards;
+    //     animation-delay: 0.5s;
+    //     z-index:2;
+    // }
 
     &__menu-list{
         margin:0;
@@ -76,6 +97,7 @@ body {
         // @include css-lock(14,16);
         color:#898989;
         text-transform: uppercase;
+        -webkit-transition:all 0.3s;
         transition:all 0.3s;
         border-bottom:1px solid #d9d9d9;
         &:hover {
@@ -111,6 +133,14 @@ p {
 
 }
 
+ul li,
+ol li {
+    font-size:14px;
+    @include css-lock(12,14);
+    font-weight:300;
+    line-height:1.8;
+}
+
 a {
     text-decoration:none;
     line-height:1.8;
@@ -132,9 +162,18 @@ a {
             align-items:center;
 
     &__line{
-        background:$main-slider-link-color;
+        // background:$main-slider-link-color;
         height:20px;
         width:40px;
+    }
+    &__progress {
+        height:20px;
+        width:0;
+        animation-name:widthIn;
+        animation-duration:0.5s;
+        animation-delay: 1.8s;
+        animation-fill-mode: forwards;
+        background:$main-slider-link-color;
     }
     &__text {
         margin-left:20px;
@@ -175,4 +214,26 @@ a {
         margin:0;
         padding:0;
     }
+}
+
+.main-loader {
+    background:white;
+    display:-webkit-box;
+    display:-ms-flexbox;
+    display:flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align:center;
+        -ms-flex-align:center;
+            align-items:center;
+    height:100vh;
+    width:100%;
+    animation-name: fadeIn;
+    animation-duration:0.5s;
+}
+
+.swiper-scrollbar-drag{
+    height:6px;
+    background:rgba(0, 0, 0, 0.4);
 }

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { WordpressService } from '../../service/wordpress.service';
+import { Title }     from '@angular/platform-browser';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-offer',
@@ -13,7 +15,7 @@ export class OfferComponent implements OnInit {
   public offerCount:number=null;
   public offerRow:number[]=[];
 
-  constructor(private wordpressService: WordpressService) {}
+  constructor(private wordpressService: WordpressService, private titleService: Title, private route: ActivatedRoute) {}
 
   ngOnInit() {
 
@@ -24,6 +26,10 @@ export class OfferComponent implements OnInit {
         this.offerCount = Math.ceil(response[0].length / 6);
 
         for(let i:number=1;i<=this.offerCount;i++){ this.offerRow.push(i); }  
+
+        this.route.params.subscribe(params=>{
+          this.titleService.setTitle(`Laser Stempel - Usługi`);
+        })
         
       }
     )

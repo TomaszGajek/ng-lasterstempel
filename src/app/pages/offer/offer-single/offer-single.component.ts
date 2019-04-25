@@ -1,6 +1,7 @@
 import { Component, OnInit, Input  } from '@angular/core';
 import { WordpressService } from '../../../service/wordpress.service';
 import { ActivatedRoute } from '@angular/router';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-offer-single',
@@ -14,17 +15,21 @@ export class OfferSingleComponent implements OnInit {
   public aside:any;
 
   
-  constructor(private wordpressService: WordpressService, private route: ActivatedRoute) { }
+  constructor(private wordpressService: WordpressService, private route: ActivatedRoute, private titleService: Title) { }
 
 
   ngOnInit() {
     
     this.route.params.subscribe(params=>{
+      
       this.wordpressService.requestDataForOfferSingle(params.id).subscribe(response=>{
         this.loaded=true;
         this.offerSingle = response[0];
         this.aside = response[1];
+        this.titleService.setTitle(`Laser Stempel - ${this.offerSingle[0].title.rendered}`);
       })
+
+
 
     })
   }

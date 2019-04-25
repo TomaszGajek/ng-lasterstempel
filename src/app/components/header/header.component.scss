@@ -3,6 +3,44 @@
 
 .header {
     background:white;
+    -webkit-animation-name: slideInDown;
+            animation-name: slideInDown;
+    -webkit-animation-duration: 1s;
+            animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+            animation-fill-mode: both;
+    &__tel {
+        position:relative;
+        display:-webkit-box;
+        display:-ms-flexbox;
+        display:flex;
+        -webkit-box-align:center;
+            -ms-flex-align:center;
+                align-items:center;
+        &:hover .header__tel-text {
+            color:$main-slider-link-color;
+        }      
+        &:before{
+            content:'';
+            display:block;
+            height:30px;
+            width:1px;
+            background:#363636;
+            position:absolute;
+            left:0;
+            top:15px;
+        }  
+    }
+    &__tel-text {
+        font-size:16px;
+        margin-left:15px;
+        color:#363636;
+        -webkit-transition:all 0.3s ease-in-out;
+        transition:all 0.3s ease-in-out;
+    }
+    &__tel-icon {
+        margin-left:15px;
+    }
     &__container{
         display:-webkit-box;
         display:-ms-flexbox;
@@ -13,13 +51,23 @@
     }
     &__nav {
         
+        display:-webkit-box;
+        
+        display:-ms-flexbox;
+        
         display:flex;
-        justify-content: space-between;
-        align-items:center;
+        -webkit-box-pack: justify;
+            -ms-flex-pack: justify;
+                justify-content: space-between;
+        -webkit-box-align:center;
+            -ms-flex-align:center;
+                align-items:center;
         width:100%;
         padding:20px 0;
     }
     &__list {
+        display:-webkit-box;
+        display:-ms-flexbox;
         display:flex;
         li {
             list-style:none;
@@ -40,3 +88,36 @@
     }
 }
 
+
+@-webkit-keyframes slideInDown {
+    from {
+      -webkit-transform: translate3d(0, -100%, 0);
+              transform: translate3d(0, -100%, 0);
+      visibility: visible;
+    }
+  
+    to {
+      -webkit-transform: translate3d(0, 0, 0);
+              transform: translate3d(0, 0, 0);
+    }
+  }
+
+
+@keyframes slideInDown {
+    from {
+      -webkit-transform: translate3d(0, -100%, 0);
+              transform: translate3d(0, -100%, 0);
+      visibility: visible;
+    }
+  
+    to {
+      -webkit-transform: translate3d(0, 0, 0);
+              transform: translate3d(0, 0, 0);
+    }
+  }
+  
+  .slideInDown {
+    -webkit-animation-name: slideInDown;
+            animation-name: slideInDown;
+  }
+ 

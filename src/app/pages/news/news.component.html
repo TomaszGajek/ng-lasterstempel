@@ -1,0 +1,48 @@
+<div class="container container--flex" *ngIf="loaded; else loader">
+    <aside class="aside">
+        <nav class="aside__menu">
+            <ul class="aside__menu-list">
+              <li 
+                class="aside__menu-item"
+                *ngFor="let item of aside.items"
+                [className]="item.menu_item_parent != 0 ? 'aside__menu-item--child':'aside__menu-item--parent'">
+                <a class="aside__menu-link" routerLink="{{item.link}}" routerLinkActive="active">{{item.title}}</a>
+              </li>
+            </ul>          
+        </nav>
+      </aside>
+      <main class="main">
+        <section class="news">
+          <div class="page-title">
+            <div class="page-title__line">
+                <div class="page-title__progress"></div>
+            </div>
+            <div class="page-title__text">Nowości</div>
+          </div>
+          <div class="news__wrapper">
+            <a routerLink="{{item.link.url}}" class="news__thumb" *ngFor="let item of news.acf.news">
+                <div class="news__top-box">
+                    <div class="news__link-line">
+                        <div class="news__link-progress"></div>
+                    </div>
+                    <p class="news__link-text">Nowość</p>
+                </div>
+                <div class="news__content">
+                    <h2 class="news__title" [innerHTML]="item.title"></h2>
+                    <p class="news__text" [innerHTML]="item.preview"></p>
+                </div>
+                <div class="news__link-box">
+                    <div class="news__link-line">
+                      <div class="news__link-progress"></div>
+                    </div>
+                    <p class="news__link">czytaj więcej</p>
+                </div>   
+                <div class="news__image" [ngStyle]="{'background-image':'url('+item.img+')'}"></div>             
+            </a>
+          </div> 
+        </section>
+      </main>
+  </div>
+  <ng-template #loader>
+      <div class="about-loader"></div>
+  </ng-template>

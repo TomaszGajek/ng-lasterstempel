@@ -12,16 +12,15 @@
         </nav>
       </aside>
       <main class="main">
-        <section class="offer-single">
+        <section class="default">
           <div class="page-title">
             <div class="page-title__line">
                 <div class="page-title__progress"></div>
             </div>
-            <div class="page-title__text">Usługi</div>
+            <div class="page-title__text" [innerHTML]="page[0].title.rendered"></div>
           </div>
-          <div class="offer-single__text">
-            <h2 class="offer-single__title" [innerHTML]="offerSingle[0].title.rendered"></h2>
-            <div class="offer-single__content" [innerHTML]="offerSingle[0].content.rendered"></div>
+          <div class="default__text">
+            <div class="default__content" [innerHTML]="page[0].content.rendered"></div>
           </div> 
         </section>
       </main>

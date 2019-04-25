@@ -1,4 +1,4 @@
-<main *ngIf="loaded">
+<main *ngIf="loaded; else loader">
   <section class="start-slider">
     <div class="container">
       <div  class="main-slider swiper-container" [swiper]="config">
@@ -6,13 +6,17 @@
               <div *ngFor="let slide of slides" class="swiper-slide main-slider__slide">
                   <div class="main-slider__content">
                       <div class="main-slider__top-box">
-                          <div class="main-slider__link-line"></div>
+                          <div class="main-slider__link-line">
+                              <div class="main-slider__link-progress"></div>
+                          </div>
                           <p>Nowość</p>
                       </div>
                       <h2 class="main-slider__title">{{slide.title}}</h2>
                       <p class="main-slider__text">{{slide.text}}</p>
                       <div class="main-slider__link-box">
-                        <div class="main-slider__link-line"></div>
+                        <div class="main-slider__link-line">
+                          <div class="main-slider__link-progress"></div>
+                        </div>
                         <a class="main-slider__link" routerLink="{{slide.link.url}}">{{slide.link.title}}</a>
                       </div>
                       
@@ -87,3 +91,7 @@
     </div>
   </section>
 </main>
+<ng-template #loader>
+    <div class="start-loader" #loader></div>
+</ng-template>
+

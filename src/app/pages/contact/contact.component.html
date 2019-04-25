@@ -1,3 +1,45 @@
-<p>
-  contact works!
-</p>
+<ng-template #loader>
+    <div class="about-loader">
+       
+    </div>
+</ng-template>
+<div class="container container--flex" *ngIf="loaded; else loader">
+    <aside class="aside">
+        <nav class="aside__menu">
+            <ul class="aside__menu-list">
+              <li 
+                class="aside__menu-item"
+                *ngFor="let item of aside.items"
+                [className]="item.menu_item_parent != 0 ? 'aside__menu-item--child':'aside__menu-item--parent'">
+                <a class="aside__menu-link" routerLink="{{item.link}}" routerLinkActive="active">{{item.title}}</a>
+              </li>
+            </ul>          
+        </nav>
+      </aside>
+      <main class="main">
+        <section class="contact">
+            <div class="start-about__wrap">
+              <div class="start-about__box">
+                <div class="page-title">
+                  <div class="page-title__line">
+                      <div class="page-title__progress"></div>
+                  </div>
+                  <div class="page-title__text">Kontakt</div>
+                </div>
+                <div class="contact__content" [innerHTML]="contact.content.rendered"></div>
+                <div class="contact__row">
+                  <div class="contact__column" *ngFor="let column of contact.acf.content" [innerHTML]="column.column"></div>
+                </div>
+                
+              </div>  
+            </div>
+        </section>
+      </main>
+</div>
+<section class="start-map contact__map">
+    <div class="container">
+        <iframe width="100%" src="https://maps.google.com/maps?width=100%&amp;height=600&amp;hl=en&amp;q=Laser%20Stempel%20ul.Sobieskiego%2065%2084-230%20Rumia-Janowo+()&amp;ie=UTF8&amp;t=&amp;z=14&amp;iwloc=B&amp;output=embed" frameborder="0" border="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+    </div>
+</section>
+
+

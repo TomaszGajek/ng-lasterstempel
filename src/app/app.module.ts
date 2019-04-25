@@ -1,4 +1,4 @@
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule, Title } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
@@ -16,16 +16,20 @@ import { ContactComponent } from './pages/contact/contact.component';
 import { GalleryComponent } from './pages/gallery/gallery.component';
 import { OfferComponent } from './pages/offer/offer.component';
 import { OfferSingleComponent } from './pages/offer/offer-single/offer-single.component';
+import { NewsComponent } from './pages/news/news.component';
+import { DefaultComponent } from './pages/default/default.component';
 
 
 
 const appRoutes: Routes = [
-  {path:'', component:StartComponent},
+  {path:'', pathMatch: 'full',component:StartComponent},
   {path:'o-nas',component: AboutComponent},
   {path: 'uslugi',component:OfferComponent},
   {path: 'uslugi/:id',component:OfferSingleComponent},
   {path:'galeria',component:GalleryComponent},
-  {path:'kontakt',component:ContactComponent}
+  {path:'kontakt',component:ContactComponent},
+  {path:'nowosci',component:NewsComponent},
+  {path:':id',component:DefaultComponent}
 ];
 
 
@@ -40,6 +44,8 @@ const appRoutes: Routes = [
     GalleryComponent,
     OfferComponent,
     OfferSingleComponent,
+    NewsComponent,
+    DefaultComponent,
 
   ],
   imports: [
@@ -51,7 +57,9 @@ const appRoutes: Routes = [
     SwiperModule,
     LightboxModule
   ],
-  providers: [],
+  providers: [
+    Title
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

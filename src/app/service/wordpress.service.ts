@@ -62,6 +62,27 @@ export class WordpressService  {
     return forkJoin([offerSingle,aside_menu]);
   }
   
+  public requestDataForContact():Observable<any[]>{
+    let contact = this.httpClient.get(`${this.baseUrl}/wp-json/wp/v2/pages/40`);
+    let aside_menu = this.httpClient.get(`${this.baseUrl}/wp-json/menus/v1/menus/aside`);
+    return forkJoin([contact,aside_menu]);
+  }
+
+  public requestDataForNews():Observable<any[]>{
+    let news = this.httpClient.get(`${this.baseUrl}/wp-json/wp/v2/pages/160`);
+    let aside_menu = this.httpClient.get(`${this.baseUrl}/wp-json/menus/v1/menus/aside`);
+
+    return forkJoin([news,aside_menu]);
+  }
+
+  public requestDataforDefault(data):Observable<any[]>{
+
+    let page = this.httpClient.get(`${this.baseUrl}/wp-json/wp/v2/pages/?slug=${data}`);
+    let aside_menu = this.httpClient.get(`${this.baseUrl}/wp-json/menus/v1/menus/aside`);
+
+    return forkJoin([page,aside_menu]);
+  }
+
 
 
 }

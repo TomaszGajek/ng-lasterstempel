@@ -1,3 +1,26 @@
+main {
+    -webkit-animation-name: slideInUp;
+            animation-name: slideInUp;
+    -webkit-animation-duration: 1s;
+            animation-duration: 1s;
+    -webkit-animation-fill-mode: forwards;
+            animation-fill-mode: forwards;
+    -webkit-animation-delay: 0.8s;
+            animation-delay: 0.8s;
+    min-height: 100vh;
+    -webkit-transition:all 1s ease-in-out;
+    transition:all 1s ease-in-out;
+    opacity:0;
+}
+.about-loader {
+    min-height:100vh;
+    -webkit-animation-name:fadeIn;
+            animation-name:fadeIn;
+    -webkit-animation-duration:0.5s;
+            animation-duration:0.5s;
+    
+}
+
 .start-about {
     &__wrap{
         display:-webkit-box;

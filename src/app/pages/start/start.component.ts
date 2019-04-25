@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { WordpressService } from '../../service/wordpress.service';
 import { SwiperConfigInterface, SwiperScrollbarInterface } from 'ngx-swiper-wrapper';
+import { Title }     from '@angular/platform-browser';
+import { ActivatedRoute } from '@angular/router';
 
 
 @Component({
@@ -39,19 +41,28 @@ export class StartComponent implements OnInit {
     draggable: true
   };
 
-  constructor(private wordpressService: WordpressService) {}
+  constructor(private wordpressService: WordpressService, private titleService: Title, private route: ActivatedRoute) {}
 
   ngOnInit() {
     this.wordpressService.requestDataForStart().subscribe(
       response => {
         this.loaded = true;
+          
         this.start = response[0];
         this.slides = response[0].acf.main_slider;
         this.offer = response[1];
         this.offerCount = Math.ceil(response[1].length / 6);
         for(let i:number=1;i<=this.offerCount;i++){ this.offerRow.push(i); }  
+
+        this.route.params.subscribe(params=>{
+          this.titleService.setTitle(`Laser Stempel - ${this.start.title.rendered}`);
+        })
+
       }
+
     )
+
+    
   }
 
 }

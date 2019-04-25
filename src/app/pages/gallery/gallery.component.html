@@ -1,4 +1,4 @@
-<div class="container container--flex" *ngIf="loaded">
+<div class="container container--flex" *ngIf="loaded; else loader">
     <aside class="aside">
       <nav class="aside__menu">
           <ul class="aside__menu-list">
@@ -14,7 +14,9 @@
     <main class="main" *ngIf="loaded">
         <section class="gallery-page">
                 <div class="page-title">
-                  <div class="page-title__line"></div>
+                  <div class="page-title__line">
+                      <div class="page-title__progress"></div>
+                  </div>
                   <div class="page-title__text">Galeria</div>
                 </div>
                 <div class="gallery">
@@ -25,4 +27,6 @@
         </section>  
       </main>
 </div>
-
+<ng-template #loader>
+    <div class="about-loader"></div>
+  </ng-template>
