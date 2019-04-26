@@ -11,6 +11,22 @@
             </ul>          
         </nav>
       </aside>
+      <div *ngIf="empty; else content" class="error">
+          <section class="default">
+              <div class="page-title">
+                <div class="page-title__line">
+                    <div class="page-title__progress"></div>
+                </div>
+                <div class="page-title__text">Błąd 404...</div>
+              </div>
+              <div class="default__text">
+                <div class="default__content">
+                  <h2>Brak szukanej frazy...</h2>
+                </div>
+              </div> 
+            </section>
+      </div>
+      <ng-template #content>
       <main class="main">
         <section class="offer-single">
           <div class="page-title">
@@ -25,6 +41,7 @@
           </div> 
         </section>
       </main>
+    </ng-template>
   </div>
   <ng-template #loader>
       <div class="about-loader"></div>

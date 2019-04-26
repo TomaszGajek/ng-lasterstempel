@@ -18,6 +18,7 @@ import { OfferComponent } from './pages/offer/offer.component';
 import { OfferSingleComponent } from './pages/offer/offer-single/offer-single.component';
 import { NewsComponent } from './pages/news/news.component';
 import { DefaultComponent } from './pages/default/default.component';
+import { ErrorComponent } from './pages/error/error.component';
 
 
 
@@ -29,7 +30,9 @@ const appRoutes: Routes = [
   {path:'galeria',component:GalleryComponent},
   {path:'kontakt',component:ContactComponent},
   {path:'nowosci',component:NewsComponent},
-  {path:':id',component:DefaultComponent}
+  {path:':id',component:DefaultComponent},
+  {path:'404',component:ErrorComponent},
+  {path: '**', redirectTo: '/404'}
 ];
 
 
@@ -46,6 +49,7 @@ const appRoutes: Routes = [
     OfferSingleComponent,
     NewsComponent,
     DefaultComponent,
+    ErrorComponent,
 
   ],
   imports: [

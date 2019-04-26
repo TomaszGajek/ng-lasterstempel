@@ -13,7 +13,7 @@ export class OfferSingleComponent implements OnInit {
   public loaded:Boolean = false;
   public offerSingle:any;
   public aside:any;
-
+  public empty:Boolean=false;
   
   constructor(private wordpressService: WordpressService, private route: ActivatedRoute, private titleService: Title) { }
 
@@ -23,10 +23,18 @@ export class OfferSingleComponent implements OnInit {
     this.route.params.subscribe(params=>{
       
       this.wordpressService.requestDataForOfferSingle(params.id).subscribe(response=>{
-        this.loaded=true;
-        this.offerSingle = response[0];
-        this.aside = response[1];
-        this.titleService.setTitle(`Laser Stempel - ${this.offerSingle[0].title.rendered}`);
+        if(response[0].length <= 0){
+          this.empty = true;
+          this.loaded=true;
+          this.aside = response[1];
+          this.titleService.setTitle(`Laser Stempel - 404`);
+        } else {
+          this.loaded=true;
+          this.offerSingle = response[0];
+          this.aside = response[1];
+          this.titleService.setTitle(`Laser Stempel - ${this.offerSingle[0].title.rendered}`);
+        }
+        
       })
 
 
