@@ -56,3 +56,24 @@ main {
         -ms-flex-align:center;
             align-items:center;
 }
+
+/*RWD*/
+
+@media(max-width:768px){
+
+    .contact {
+        padding:15px;
+    }
+    .contact__row{
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+                flex-direction: column;
+    }
+    .contact__column{
+        width:100%;
+        margin-bottom:50px;
+        padding:30px;
+    }
+
+}

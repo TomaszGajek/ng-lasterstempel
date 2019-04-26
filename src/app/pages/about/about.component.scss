@@ -57,3 +57,29 @@ main {
 .footer {
     padding-top:0;
 }
+
+/* RWD */
+
+@media(max-width:991px){
+    .start-about__text {
+        padding: 0px 0 30px 30px;
+    }
+    .about .page-title {
+        margin-left:30px;
+        margin-top:30px;
+    }
+    
+}
+
+@media(max-width:600px){
+    .start-about__image {
+        height:400px;
+    }
+}
+
+@media(max-width:350px){
+    .start-about__image {
+        height:300px;
+    }
+}
+

@@ -47,3 +47,11 @@ main {
 .default {
    padding:60px;        
 }
+
+/* RWD */
+
+@media(max-width:991px) {
+        .offer-single{
+                padding:30px;
+        }
+}

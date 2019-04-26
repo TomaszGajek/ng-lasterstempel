@@ -42,9 +42,12 @@ body {
     background:white;
     width:30%;
     position:relative;
-    animation-name: slideInLeft;
-    animation-duration:1s;
-    animation-fill-mode: forwards;
+    -webkit-animation-name: slideInLeft;
+            animation-name: slideInLeft;
+    -webkit-animation-duration:1s;
+            animation-duration:1s;
+    -webkit-animation-fill-mode: forwards;
+            animation-fill-mode: forwards;
 
     &__menu-list{
         margin:0;
@@ -155,10 +158,14 @@ a {
     &__progress {
         height:20px;
         width:0;
-        animation-name:widthIn;
-        animation-duration:0.5s;
-        animation-delay: 1.8s;
-        animation-fill-mode: forwards;
+        -webkit-animation-name:widthIn;
+                animation-name:widthIn;
+        -webkit-animation-duration:0.5s;
+                animation-duration:0.5s;
+        -webkit-animation-delay: 1.8s;
+                animation-delay: 1.8s;
+        -webkit-animation-fill-mode: forwards;
+                animation-fill-mode: forwards;
         background:$main-slider-link-color;
     }
     &__text {
@@ -215,8 +222,10 @@ a {
             align-items:center;
     height:100vh;
     width:100%;
-    animation-name: fadeIn;
-    animation-duration:0.5s;
+    -webkit-animation-name: fadeIn;
+            animation-name: fadeIn;
+    -webkit-animation-duration:0.5s;
+            animation-duration:0.5s;
 }
 
 .swiper-scrollbar-drag{
@@ -233,4 +242,28 @@ a {
         padding-left:15px;
         padding-right:15px;
     }
+}
+
+@media(max-width:991px){
+
+    .container--flex {
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+                flex-direction: column;
+    }
+    .aside {
+        -webkit-box-ordinal-group:3;
+            -ms-flex-order:2;
+                order:2;
+        width:100%;
+    }
+    .main {
+        width:100%;
+        -webkit-box-ordinal-group:2;
+            -ms-flex-order:1;
+                order:1;
+    }
+
+
 }
